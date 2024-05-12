@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Location Map</title>
+    <!-- Include Leaflet CSS for map styling -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <!-- Include Leaflet JavaScript library -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        #map { height: 100vh; } /* Set map height to fill the viewport */
+        body, html { margin: 0; padding: 0; } /* Remove default margins and padding */
+        .buttons-container { position: fixed; top: 10px; left: 10px; z-index: 1000; }
+        .btn { margin-right: 5px; cursor: pointer; }
+        .button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+#xyz{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    </style>
+</head>
+<body>
+    <div id="map" style="background-image: url('https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size:cover ;
+    width: 100vw;
+    height: 100vh;"></div>
+    <div class="buttons-container" style="width: 100vw;" id="xyz">
+        <button class="button-85" style="font-size: x-large;" onclick="zoomToLocation()">Zoom to My Location</button>
+        <button class="button-85" style="font-size: x-large;" onclick="shareLocation()">Share My Location</button>
+    </div>
+
+    <script>
+        const map = L.map('map').setView([0, 0], 2); // Initial map view
+
+        // Add OpenStreetMap tiles to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        let marker, circle, zoomed;
+
+        // Watch for changes in user's position
+        navigator.geolocation.watchPosition(success, error);
+
+        function success(pos) {
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+            const accuracy = pos.coords.accuracy;
+
+            if (marker) {
+                map.removeLayer(marker);
+                map.removeLayer(circle);
+            }
+
+            // Add a marker at the user's position
+            marker = L.marker([lat, lng]).addTo(map);
+
+            // Add a circle around the user's position to show accuracy
+            circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+
+            if (!zoomed) {
+                zoomed = map.fitBounds(circle.getBounds());
+            }
+
+            map.setView([lat, lng]); // Set map focus to user's position
+        }
+
+        function error(err) {
+            if (err.code === 1) {
+                alert("Please allow geolocation access");
+            } else {
+                alert("Cannot get current location");
+            }
+        }
+
+        function zoomToLocation() {
+            if (marker) {
+                map.setView(marker.getLatLng());
+            } else {
+                alert("Location not available.");
+            }
+        }
+
+        function shareLocation() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Location',
+                    text: 'Check out my current location!',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Location shared successfully.');
+                }).catch((error) => {
+                    console.error('Error sharing location:', error);
+                });
+            } else {
+                alert('Sharing location is not supported in this browser.');
+            }
+        }
+    </script>
+</body>
+</html>

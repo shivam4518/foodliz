@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+contact
+</title>
+<link rel="stylesheet" href="contact.css">
+	<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<style>
+		#contact{
+			margin-top: 40px;
+		}
+		#contact-heading{
+			color: #080872;
+			font-family: sans-serif;
+			font-size: 25px;
+			font-weight:700;
+			padding-bottom: 20px;
+		}
+		form{
+			display: flex;
+			flex-direction: column;
+             gap: 30px;
+             align-items: center;
+		}
+		form #input-box{
+			width: 50%;
+			height:45px;
+			border: 2px solid #080872;
+			border-radius:5px ;
+		}
+		form #input-box::placeholder{
+			text-align: center;
+			color: #080872;
+		}
+		#textarea{
+			width: 50%;
+			height:100px;
+			border: 2px solid #080872;
+			border-radius:5px ;
+		}
+		#submit-btn{
+			width: 50%;
+			height: 40px;
+			background-color: lightskyblue;
+			border: none;
+			
+			border-radius:5px ;
+			color: white;
+			font-weight: bold;
+			cursor: pointer;
+		}
+    .bgc{
+      background-image: url("https://www.shutterstock.com/image-vector/online-delivery-phone-concept-fast-260nw-1609947532.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .navbar{
+      height: 189px;
+    }
+	</style>
+  
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="FOODIFY_LOGO-removebg-preview.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+      <a href="index (2).html">Home</a>
+      <a href="index (2).html">Menu</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="user-icon">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKSAs-aDrA95Um2QBx46rkg-FwzIrNwSn_TOw5VWDIjQ&s" alt="User" width="30" height="30">
+      <div class="user-dropdown">
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <div class="bgc">
+<div id="contact">
+	<center><span id="contact-heading">CONTACT US</span></center>
+	<div id="form-box">
+		<form>
+		<input type="text" name="username" id="input-box" placeholder="NAME" />
+		<input type="text" name="address" id="input-box" placeholder="ADDRESS" />
+		<input type="email" name="email" id="input-box" placeholder="EMAIL" />
+		<input type="number" name="number" id="input-box" placeholder="NUMBER" />
+		<textarea name="message" id="textarea"><center>MESSAGE</center></textarea>
+		<input type="submit" value="SEND" id="submit-btn">
+		</form>
+	</div>
+</div>
+	
+	
+	<div class="copyright" style="">
+		<p style="padding:0;margin:0;font-size:20px;font-family:calibri;text-align:center;color:black;font-weight:bold;">Foodify : Project by Kunal, Parth, Piyush, Prakul</p>
+	</div>
+</div>
+    
+</body>
+</html>

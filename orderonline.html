@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant List</title>
+    <style>
+
+        .restaurant-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .restaurant-info {
+            flex: 1;
+        }
+        .restaurant-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        .restaurant-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .restaurant-address {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .locate-now-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        nav a:hover {
+  color: #ccc;
+}
+.navbar {
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: ;
+}
+
+.navbar-logo {
+  width: 120px; 
+  height: auto;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.user-icon {
+  position: relative;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.user-icon:hover .user-dropdown {
+  display: block;
+}
+
+.user-dropdown a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.user-dropdown a:hover {
+  background-color: #ddd;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+          <img src="FOODIFY_LOGO-removebg-preview.png" alt="Logo">
+        </div>
+        <div class="navbar-links">
+          <a href="#">Home</a>
+          <a href="#">Menu</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="user-icon">
+          <img src="path/to/user-icon.png" alt="User" width="30" height="30">
+          <div class="user-dropdown">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    <div class="restaurant-list">
+        
+        <div class="restaurant-card">
+            <div class="restaurant-info">
+                <div class="restaurant-img">
+                    <img src="restaurant1.jpg" alt="Restaurant 1">
+                </div>
+                <div class="restaurant-details">
+                    <div class="restaurant-name">Restaurant 1</div>
+                    <div class="restaurant-address">123 Main St, City, State</div>
+                </div>
+            </div>
+            <button class="locate-now-button">Locate Now</button>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-info">
+                <div class="restaurant-img">
+                    <img src="restaurant2.jpg" alt="Restaurant 2">
+                </div>
+                <div class="restaurant-details">
+                    <div class="restaurant-name">Restaurant 2</div>
+                    <div class="restaurant-address">456 Oak St, City, State</div>
+                </div>
+            </div>
+            <button class="locate-now-button">Locate Now</button>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-info">
+                <div class="restaurant-img">
+                    <img src="restaurant3.jpg" alt="Restaurant 3">
+                </div>
+                <div class="restaurant-details">
+                    <div class="restaurant-name">Restaurant 3</div>
+                    <div class="restaurant-address">789 Elm St, City, State</div>
+                </div>
+            </div>
+            <button class="locate-now-button">Locate Now</button>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-info">
+                <div class="restaurant-img">
+                    <img src="restaurant4.jpg" alt="Restaurant 4">
+                </div>
+                <div class="restaurant-details">
+                    <div class="restaurant-name">Restaurant 4</div>
+                    <div class="restaurant-address">101 Pine St, City, State</div>
+                </div>
+            </div>
+            <button class="locate-now-button">Locate Now</button>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-info">
+                <div class="restaurant-img">
+                    <img src="restaurant5.jpg" alt="Restaurant 5">
+                </div>
+                <div class="restaurant-details">
+                    <div class="restaurant-name">Restaurant 5</div>
+                    <div class="restaurant-address">202 Maple St, City, State</div>
+                </div>
+            </div>
+            <button class="locate-now-button">Locate Now</button>
+        </div>
+    </div>
+</body>
+</html>

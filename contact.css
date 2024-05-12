@@ -1,0 +1,57 @@
+nav a:hover {
+  color: #ccc;
+}
+.navbar {
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: ;
+}
+
+.navbar-logo {
+  width: 120px; 
+  height: auto;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.user-icon {
+  position: relative;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.user-icon:hover .user-dropdown {
+  display: block;
+}
+
+.user-dropdown a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.user-dropdown a:hover {
+  background-color: #ddd;
+}
